@@ -20,6 +20,10 @@ defmodule UrlShortnerWeb.Router do
     get "/", PageController, :index
   end
 
+  scope "/", UrlShortnerWeb do
+    get "/short_url", LinksController, :handle_short_link
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", UrlShortnerWeb do
   #   pipe_through :api

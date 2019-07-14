@@ -1,5 +1,5 @@
 defmodule UrlShortner.LinkCreator do
   def generate_short_link(url) do
-    "hello"
+    IO.inspect(url)
   end
 end

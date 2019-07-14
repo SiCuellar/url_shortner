@@ -7,12 +7,16 @@ defmodule UrlShortnerWeb.LinksControllerTest do
   end
 
   test "it can take in a long url", %{conn: conn} do
-    conn = post(conn, "/links")
+    conn = post(conn, "/links", [long_url: "longest", short_url: "short"])
     assert json_response(conn, 201)
   end
 
-  test "it can accept a valid post request/ return valid url" do
-    
-  end
+  test "it can take you from long link to short link", %{conn: conn} do
+    longest = "https://long_url"
+    short = "1234_abc"
+    post_conn = post(conn, "/links", [long_url: longest, short_url: short])
 
+    conn = get(conn, "/#{short}")
+
+  end
 end
